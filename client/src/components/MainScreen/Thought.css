@@ -1,0 +1,22 @@
+.thought-date {
+  display:inline-block;
+  padding: 5px;
+  margin-left: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  background-color: #8b9d83;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.thought-text {
+  font-size: 1.5em;
+  padding: 10px;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  background-color: #3a4e48;
+  color: #fff;
+  border-radius: 2px;
+}

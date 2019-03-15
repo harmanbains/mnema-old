@@ -1,0 +1,9 @@
+.main {
+  margin: 0 auto;
+  max-width: 750px;
+  height: 100%;
+  border-radius: 5px;
+  border: 5px solid #fff;
+  box-shadow: 5px 5px 10px grey;
+  background-color: #8b9d83;
+}

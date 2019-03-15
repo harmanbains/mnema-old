@@ -1,0 +1,14 @@
+.nav-button {
+  width: 33.33%;
+  height: 50px;
+  background-color: #fff;
+  border: 2px solid #8b9d83;
+  text-transform:uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  cursor:pointer;
+}
+
+.check {
+  background-color: #8b9d83;
+  color: #fff;
+}

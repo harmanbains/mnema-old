@@ -1,0 +1,18 @@
+
+.maininput {
+  width: 64.5%;
+  line-height:3em;
+  font-family: 'Ubuntu', sans-serif;
+  border:2px solid #8b9d83;
+  padding-left:10px;
+}
+
+#mainsubmit-button {
+  width: 33.33%;
+  height: 50px;
+  background: #fff;
+  border: 2px solid #8b9d83;
+  text-transform:uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  cursor:pointer;
+}

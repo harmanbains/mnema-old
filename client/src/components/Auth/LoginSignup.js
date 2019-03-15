@@ -1,20 +1,23 @@
 import React from 'react';
 import axios from 'axios';
 import './LoginSignup.css';
-import logo from './../buddhaSquare.jpg';
+import logo from './../../buddha.jpg';
 
 
 class LoginSignup extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       logInPrompt: true,
-      submitButtonText: "Log In"
+      submitButtonText: "Log In",
+      email: "",
+      password: "",
     }
 
     this.handleLogInPromptChange = this.handleLogInPromptChange.bind(this);
     this.handleSignUpPromptChange = this.handleSignUpPromptChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
 
@@ -36,18 +39,41 @@ class LoginSignup extends React.Component {
     }
   }
 
+  handleChange(e) {
+    const {name, value} = e.target
+    this.setState({
+      [name]: value
+    })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.logInPrompt) {
-      axios.post('https://boiling-river-63231.herokuapp.com/users/login')
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        })
+      axios.post('/api/user/login', {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          this.props.handleAuth(response.data.token)
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     } else {
-      console.log('Signing Up');
+      axios.post('/api/user', {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          this.props.handleAuth(response.data.token)
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     }
   }
 
@@ -71,20 +97,26 @@ class LoginSignup extends React.Component {
             <form>
               <label>Email<br />
                 <input
+                  name='email'
                   type='text'
-                  placeholder='email'
+                  placeholder='Email'
+                  value={this.state.email}
+                  onChange={this.handleChange}
                 />
               </label>
               <br />
               <label>Password<br />
                 <input
+                  name='password'
                   type='password'
-                  placeholder='password'
+                  placeholder='Password'
+                  value={this.state.password}
+                  onChange={this.handleChange}
                 />
               </label>
               <br />
               <button
-                id="submit-button"
+                id='submit-button'
                 onClick={this.handleSubmit}
               >{this.state.submitButtonText}</button>
             </form>
