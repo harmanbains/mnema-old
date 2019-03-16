@@ -8,7 +8,7 @@ const thoughtRouter = require('./routers/thought')
 const realizationRouter = require('./routers/realization')
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT
 
 //Middleware to parse request bodies
 app.use(express.json())
