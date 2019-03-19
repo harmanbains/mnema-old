@@ -70,7 +70,6 @@ class MainInput extends React.Component {
     return (
       <form className="input-form">
         <input
-          autoFocus
           className='maininput'
           name='maininput'
           type='text'

@@ -16,3 +16,13 @@
   font-family: 'Ubuntu', sans-serif;
   cursor:pointer;
 }
+
+@media (max-width: 712px) {
+  .maininput {
+    width: calc(100% - 14px);
+  }
+
+  #mainsubmit-button {
+    width: 100%;
+  }
+}
