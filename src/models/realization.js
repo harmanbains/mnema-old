@@ -25,8 +25,8 @@ realizationSchema.methods.toJSON = function () {
   delete realizationObject.__v
   delete realizationObject.user
 
-  realizationObject.createdAt = realizationObject.createdAt.toLocaleString()
-  realizationObject.updatedAt = realizationObject.updatedAt.toLocaleString()
+  realizationObject.createdAt = realizationObject.createdAt.toLocaleString({timezone: 'America/Los_Angeles'})
+  realizationObject.updatedAt = realizationObject.updatedAt.toLocaleString({timezone: 'America/Los_Angeles'})
 
 
   return realizationObject
