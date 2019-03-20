@@ -28,9 +28,9 @@ thoughtSchema.methods.toJSON = function () {
 
   delete thoughtObject.__v
   delete thoughtObject.user
-
-  thoughtObject.createdAt = thoughtObject.createdAt.toLocaleString({timezone: 'America/Los_Angeles'})
-  thoughtObject.updatedAt = thoughtObject.updatedAt.toLocaleString({timezone: 'America/Los_Angeles'})
+  
+  thoughtObject.createdAt = thoughtObject.createdAt.toLocaleString({timeZone: 'America/Los_Angeles'})
+  thoughtObject.updatedAt = thoughtObject.updatedAt.toLocaleString({timeZone: 'America/Los_Angeles'})
 
 
   return thoughtObject
