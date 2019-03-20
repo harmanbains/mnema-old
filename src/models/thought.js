@@ -29,8 +29,11 @@ thoughtSchema.methods.toJSON = function () {
   delete thoughtObject.__v
   delete thoughtObject.user
 
+  console.log(thoughtObject.createdAt)
+  console.log(thoughtObject.createdAt.toLocaleString('en-US', {timeZone: 'America/New_York'}))
+
   thoughtObject.createdAt = thoughtObject.createdAt.toLocaleString('en-US', {timeZone: 'America/Los_Angeles'})
-  thoughtObject.updatedAt = thoughtObject.updatedAt.toLocaleString('en_US', {timeZone: 'America/Los_Angeles'})
+  thoughtObject.updatedAt = thoughtObject.updatedAt.toLocaleString('en-US', {timeZone: 'America/Los_Angeles'})
 
 
   return thoughtObject
