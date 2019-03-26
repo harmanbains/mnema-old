@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-//Create Thought Model
-
+//Create Thought Schema
 const thoughtSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +20,8 @@ const thoughtSchema = new mongoose.Schema({
   timestamps: true
 })
 
-// Alter thought to only return public data
+// Alter thought to only return public data when converted to JSON
+// And return human readable strings for dates
 thoughtSchema.methods.toJSON = function () {
   const thought = this
   const thoughtObject = thought.toObject()
@@ -39,6 +39,7 @@ thoughtSchema.methods.toJSON = function () {
   return thoughtObject
 }
 
+//Create Thought model
 const Thought = mongoose.model('Thought', thoughtSchema)
 
 

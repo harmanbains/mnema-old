@@ -3,7 +3,8 @@ import axios from 'axios';
 import './LoginSignup.css';
 import logo from './../../buddha.jpg';
 
-
+//TODO: Handle and display log in and user sign up errors
+//Currently printing to console only
 class LoginSignup extends React.Component {
   constructor(props) {
     super();
@@ -20,7 +21,7 @@ class LoginSignup extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-
+  //Changes to Log In prompt from Sign Up prompt
   handleLogInPromptChange() {
     if (!this.state.logInPrompt) {
       this.setState({
@@ -30,6 +31,7 @@ class LoginSignup extends React.Component {
     }
   }
 
+  //Changes to Sign Up prompt from Log in prompt
   handleSignUpPromptChange() {
     if (this.state.logInPrompt) {
       this.setState({
@@ -39,6 +41,8 @@ class LoginSignup extends React.Component {
     }
   }
 
+  //Controlled Component form method to ensure React state is singular source
+  //of truth about state
   handleChange(e) {
     const {name, value} = e.target
     this.setState({
@@ -46,6 +50,8 @@ class LoginSignup extends React.Component {
     })
   }
 
+  //Creates API request to log in a user, or create a new user
+  //TODO: Store and display auth errors(Currently logged to console)
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.logInPrompt) {
@@ -77,6 +83,7 @@ class LoginSignup extends React.Component {
     }
   }
 
+  //TODO: Refactor into a Logo Component and a Credentials Component
   render() {
     return (
       <div className="login">

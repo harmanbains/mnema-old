@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-//Create Realization Model
-
+//Create Realization Schema
 const realizationSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +16,8 @@ const realizationSchema = new mongoose.Schema({
   timestamps: true
 })
 
-// Alter realization to only return public data
+// Alter realization to only return public data when converted to JSON
+// And return human readable strings for dates
 realizationSchema.methods.toJSON = function () {
   const realization = this
   const realizationObject = realization.toObject()
@@ -32,6 +32,7 @@ realizationSchema.methods.toJSON = function () {
   return realizationObject
 }
 
+//Create Realization Model
 const Realization = mongoose.model('Realization', realizationSchema)
 
 

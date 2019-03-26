@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
+//Try to find user with auth token matching that sent in header
+//If user is found, it is added to req as req.user
+//And token added as req.token
 const auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '')

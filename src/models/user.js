@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Thought = require('./thought')
 
+
+//Create User Schema
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -43,7 +45,7 @@ userSchema.virtual('thoughts', {
   foreignField: 'user'
 })
 
-// Alter user to only return public data
+// Alter user to only return public data when converted to JSON
 userSchema.methods.toJSON = function () {
   const user = this
   const userObject = user.toObject()
@@ -96,11 +98,13 @@ userSchema.pre('save', async function (next) {
   next()
 })
 
-userSchema.pre('remove', async function (next) {
-  const user = this
-  await Thought.deleteMany({ user: user._id })
-  next()
-})
+//Before deleting a user, delete all their thoughts
+//Currently not supported
+// userSchema.pre('remove', async function (next) {
+//   const user = this
+//   await Thought.deleteMany({ user: user._id })
+//   next()
+// })
 
 
 //Create User Model
