@@ -7,7 +7,7 @@ import logo from './../../buddha.jpg';
 //Currently printing to console only
 class LoginSignup extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       logInPrompt: true,
       submitButtonText: "Log In",
